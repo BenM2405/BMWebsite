@@ -62,7 +62,7 @@ body {
 }
 
 .intro-box {
-    max-width: 500px;
+    max-width: 750px;
     background-color: #1e1e1e;
     border-radius: 12px;
     padding: 2rem;
@@ -95,6 +95,8 @@ body {
 .button:hover {
     transform: scale(1.15);
 }
+
+.play-btn:disabled{}
 
 .projects {
     margin: 4rem auto;

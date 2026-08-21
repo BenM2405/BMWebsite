@@ -24,7 +24,6 @@ const ghostText = document.getElementById('ghost-text');
 const suggestionsBox = document.getElementById('suggestions');
 
 
-// Welcome Screen Check
 async function initGame() {
     if (isFreePlay) return;
 
@@ -84,7 +83,6 @@ async function initGame() {
         return;
     }
 
-    // Show the start prompt
     const startMsg = document.createElement('p');
     startMsg.textContent = 'Press "Start New Game" to begin!';
     startMsg.id = 'start-msg';
@@ -93,7 +91,6 @@ async function initGame() {
 
 window.addEventListener('DOMContentLoaded', initGame);
 
-// Game Functions
 async function fetchCountries() {
     const neededFields = [
         'name',
@@ -105,11 +102,10 @@ async function fetchCountries() {
         'independent'
     ];
 
-    const url = `https://restcountries.com/v3.1/all?fields=${neededFields.join(',')}`;
-    const response = await fetch(url);
-
-    const data = await response.json();
-    countries = data.filter(c => c.independent); // save it
+    const url = `https://api.restcountries.com/countries/v5?fields=${neededFields.join(',')}`;
+    const response = await fetch(url)
+    const result = await response.json();
+    countries = result.data.filter(c => c.independent);
 }
 
 function dailySeed(){
